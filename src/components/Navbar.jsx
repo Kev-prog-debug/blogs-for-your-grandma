@@ -1,14 +1,15 @@
 import More from "./More";
 import { useState } from "react";
-const Navbar = () => {
+import { Link } from "react-router-dom";
+const Navbar = ({ getInput }) => {
   const [toggle, setToggle] = useState(false);
   return (
     <nav>
       <div className="navbar">
-        <h1>Navbar</h1>
+        <Link to="/">Home</Link>
         <button onClick={() => setToggle(!toggle)}>More</button>
       </div>
-      {toggle && <More />}
+      {toggle && <More getInput={getInput} />}
     </nav>
   );
 };
