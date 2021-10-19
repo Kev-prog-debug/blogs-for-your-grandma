@@ -1,10 +1,10 @@
-import News from "./News";
+import News from "../components/headlineNews/News";
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useRouteMatch, Route } from "react-router-dom";
 import { v4 } from "uuid";
 import { Loading } from "react-loading-dot";
-const FetchHeadlineNews = () => {
-  const [articles, setArticles] = useState(null);
+const Home = () => {
+  const [news, setNews] = useState(null);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     fetchAPI();
@@ -15,31 +15,28 @@ const FetchHeadlineNews = () => {
       `https://gnews.io/api/v4/top-headlines?token=${process.env.REACT_APP_API_KEY}&lang=en&max=20`
     );
     const data = await response.json();
-    setArticles(data.articles);
-    console.log(data);
+    setNews(data.articles);
+    // console.log(data);
     setLoading(false);
   };
 
+  const location = useRouteMatch();
+  console.log(location);
   return (
     <div className="headline-news-container">
       {loading ? (
         <Loading />
       ) : (
-        articles &&
-        articles.map((article) => {
+        news &&
+        news.map((article) => {
           // console.log("article", article);
-          return (
-            <Link
-              key={v4()}
-              to={{ pathname: `/news/${article.title}`, state: { ...article } }}
-              className="headline-news-anchor"
-            >
-              <News data={article} />
-            </Link>
-          );
+          return <News key={v4()} data={article} />;
         })
       )}
+      {/* <div> */}
+      {/* <Route exact path={`/news/:id`} component={() => <h1>Hello</h1>} /> */}
+      {/* </div> */}
     </div>
   );
 };
-export default FetchHeadlineNews;
+export default Home;

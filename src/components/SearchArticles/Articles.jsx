@@ -2,9 +2,13 @@ import { useEffect, useState } from "react";
 import { v4 } from "uuid";
 import { Link } from "react-router-dom";
 import { Loading } from "react-loading-dot";
-const Articles = ({ query }) => {
+import { useLocation } from "react-router-dom";
+const Articles = () => {
   const [articles, setArticles] = useState([]);
   const [loading, setLoading] = useState(true);
+  //useLocation is used to get the data sent from the More component
+  const location = useLocation();
+  const query = location.state.query;
   const [title, setTitle] = useState(query);
 
   useEffect(() => {

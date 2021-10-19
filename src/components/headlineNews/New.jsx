@@ -1,17 +1,18 @@
-const New = (match) => {
-  const data = match.location.state;
+import { useLocation } from "react-router-dom";
+const New = () => {
+  const { state } = useLocation();
   return (
     <article className="news">
-      <h1 className="news-title">{data.title}</h1>
+      <h1 className="news-title">{state.title}</h1>
       <h5 className="news-date">
-        <em>{data.publishedAt}</em>
+        <em>{state.publishedAt}</em>
       </h5>
-      <img src={data.image} className="news-img" alt="image" />
-      <p className="news-text">{data.content}</p>
+      <img src={state.image} className="news-img" alt="image" />
+      <p className="news-text">{state.content}</p>
       <p className="news-url">
         Source:
-        <a target="_blank" href={data.source.url}>
-          {data.source.name}
+        <a target="_blank" href={state.source.url}>
+          {state.source.name}
         </a>
       </p>
     </article>
