@@ -3,11 +3,10 @@ import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
 const More = () => {
   const [input, setInput] = useState("");
-  const [title, setTitle] = useState("");
   const history = useHistory();
+  console.log();
   const handleSubmit = (e) => {
     e.preventDefault();
-    setTitle(input);
     //set input value to the state value in location object. So that we can use the input value later in the  'Articles 'component
     history.push(`/articles`, { query: input });
   };
