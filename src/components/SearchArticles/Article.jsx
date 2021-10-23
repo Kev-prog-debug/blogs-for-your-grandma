@@ -1,5 +1,5 @@
 import { useHistory, useLocation, useParams } from "react-router-dom";
-const Article = (match) => {
+const Article = () => {
   const history = useHistory();
   const location = useLocation();
   const params = useParams();
@@ -12,11 +12,16 @@ const Article = (match) => {
       <h5 className="article-date">
         <em>{data.publishedAt}</em>
       </h5>
-      <img src={data.image} alt="image" className="article-img" />
+      <img src={data.image} alt="" className="article-img" />
       <p className="article-text">{data.content}</p>
       <p className="article-source">
         Source:
-        <a target="_blank" href={data.source.url} className="article-url">
+        <a
+          target="_blank"
+          rel="noreferrer"
+          href={data.source.url}
+          className="article-url"
+        >
           {data.source.name}
         </a>
       </p>

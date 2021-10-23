@@ -1,5 +1,6 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 const More = () => {
   const [input, setInput] = useState("");
   const [title, setTitle] = useState("");
@@ -11,6 +12,10 @@ const More = () => {
     history.push(`/articles`, { query: input });
   };
 
+  const link_styling = {
+    textDecoration: "none",
+    fontSize: "30px",
+  };
   return (
     <div className="more">
       <form onSubmit={handleSubmit} className="searchbar">
@@ -24,6 +29,24 @@ const More = () => {
           Search
         </button>
       </form>
+      <div
+        style={{
+          display: "flex",
+          alignContent: "center",
+          flexDirection: "column",
+          alignItems: "center",
+        }}
+      >
+        <Link to="/articles/technology" style={link_styling}>
+          Technology
+        </Link>
+        <Link to="/articles/entertainment" style={link_styling}>
+          Entertainment
+        </Link>
+        <Link to="/articles/Art" style={link_styling}>
+          Art
+        </Link>
+      </div>
     </div>
   );
 };

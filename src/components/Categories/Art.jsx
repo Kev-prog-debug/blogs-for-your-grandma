@@ -1,19 +1,15 @@
-import { v4 } from "uuid";
-import { Link } from "react-router-dom";
-import { Loading } from "react-loading-dot";
-import { useLocation } from "react-router-dom";
 import useFetch from "../../useFetch";
-const Articles = () => {
-  //useLocation is used to get the data sent from the More component
-  const location = useLocation();
-  const query = location.state.query;
-
+import { Loading } from "react-loading-dot";
+import { v4 } from "uuid";
+import { Route, Link } from "react-router-dom";
+import Article from "../SearchArticles/Article";
+const Art = () => {
   const [data, loading] = useFetch(
-    `https://gnews.io/api/v4/search?q=${query}&token=${process.env.REACT_APP_API_KEY}&lang=en&max=20`
+    `https://gnews.io/api/v4/search?q=art&token=${process.env.REACT_APP_API_KEY}&lang=en&max=20`
   );
-
+  console.log({ data, loading });
   return (
-    <div className="articles-container">
+    <>
       {loading ? (
         <Loading />
       ) : (
@@ -22,7 +18,7 @@ const Articles = () => {
           return (
             <Link
               to={{
-                pathname: `/articles/${article.title}`,
+                pathname: `/categories/art/${article.title}`,
                 state: { ...article },
               }}
               key={v4()}
@@ -38,7 +34,10 @@ const Articles = () => {
           );
         })
       )}
-    </div>
+      <div>
+        <Route path="/art/:title" component={Article} />
+      </div>
+    </>
   );
 };
-export default Articles;
+export default Art;

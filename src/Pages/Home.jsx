@@ -1,11 +1,12 @@
 import News from "../components/headlineNews/News";
 import { useState, useEffect } from "react";
-import { Link, useRouteMatch, Route } from "react-router-dom";
+import { useRouteMatch } from "react-router-dom";
 import { v4 } from "uuid";
 import { Loading } from "react-loading-dot";
 const Home = () => {
   const [news, setNews] = useState(null);
   const [loading, setLoading] = useState(true);
+
   useEffect(() => {
     fetchAPI();
   }, []);
@@ -33,9 +34,6 @@ const Home = () => {
           return <News key={v4()} data={article} />;
         })
       )}
-      {/* <div> */}
-      {/* <Route exact path={`/news/:id`} component={() => <h1>Hello</h1>} /> */}
-      {/* </div> */}
     </div>
   );
 };

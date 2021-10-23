@@ -9,7 +9,7 @@ const Weather = () => {
       `https://api.openweathermap.org/data/2.5/weather?q=yangon&appid=d896edbae39a61362c68bc4466dd9453&units=metric`
     );
     const data = await response.json();
-    console.log("data", data);
+    // console.log("data", data);
     setWeatherData(data);
   };
   return (
