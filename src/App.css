@@ -5,69 +5,48 @@ body {
   background-color: rgb(212, 209, 209);
 }
 /* navbar */
+
 .navbar {
-  color: black;
-  display: flex;
-  background-color: #333;
-}
-.nav-btn {
-  margin-left: auto;
-  border: none;
-  background-color: #333;
-  color: white;
-  margin-right: 2rem;
-}
-.aboutus,
-.home {
-  color: white;
-  text-decoration: none !important;
-}
-nav {
-  position: sticky;
-  top: 0;
-}
-.banner {
-  display: flex;
-  justify-content: space-between;
   margin: 0;
-  background-color: rgb(184, 184, 184);
+  display: flex;
+  background-color: green;
+  align-items: center;
+  justify-content: space-between;
 }
-.weatherInfo {
-  color: white;
-  margin-left: auto;
-  text-align: center;
+.more-component-toggle-btn {
+  background: none;
+  border: none;
+  font-size: larger;
 }
-.city {
-  margin-top: 10px;
-  font-size: medium;
+.aboutus {
+  display: inline-block;
+  margin: 0 20px;
 }
-.weather-icon {
-  height: 50px;
-  width: 50px;
+/* weather component */
+.city,
+.weather-icon,
+.weather-temp {
+  display: inline-block;
+  width: 75px;
 }
-.website-brand {
-  margin: auto 0 auto 1rem;
-}
+
+/* more component */
 .more {
-  background-color: #333;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  border-bottom: 4px solid black;
 }
 
 .searchbar-input {
-  width: 400px;
-  border: none;
+  margin: 0 20px;
+}
+.categories * {
   display: block;
-  margin: 0 auto 0 auto;
-  border-bottom: 2px solid black;
+  text-align: center;
 }
-.searchbar-input:focus {
-  outline: none;
-}
-.search-btn {
-  display: block;
-  margin: 0 auto 0 auto;
-  border-radius: 5px !important;
-}
-
+/* articles */
 .articles-anchor {
   text-decoration: none !important;
 }
@@ -176,11 +155,9 @@ nav {
 }
 .news-img {
   display: block;
-  margin-left: auto;
-  margin-right: auto;
   border-radius: 5px;
-  margin-bottom: 20px;
-  margin-top: 20px;
+  margin: 1rem auto;
+  width: 800px;
 }
 
 .news-text {

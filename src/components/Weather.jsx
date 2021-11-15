@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Container } from "./styles/weatherInfo.styled";
 const Weather = () => {
   const [weatherData, setWeatherData] = useState(null);
   useEffect(() => {
@@ -15,16 +16,14 @@ const Weather = () => {
   return (
     <>
       {weatherData && (
-        <div className="weatherInfo">
-          <h3 className="city">{weatherData.name}</h3>
-
+        <Container>
+          <h5>{weatherData.name}</h5>
           <img
-            className="weather-icon"
             src={`http://openweathermap.org/img/wn/${weatherData.weather[0].icon}@2x.png`}
             alt="weather icon"
           />
-          <p className="weather-temp">{Math.round(weatherData.main.temp)} ℃</p>
-        </div>
+          <p>{Math.round(weatherData.main.temp)} ℃</p>
+        </Container>
       )}
     </>
   );
