@@ -6,6 +6,7 @@ export const Container = styled.div`
   grid-template-columns: repeat(2, minmax(150px, 1fr));
   grid-gap: 30px;
   text-decoration: none;
+  background-color: white;
   @media (max-width: 768px) {
     grid-template-columns: repeat(1, 1fr);
   }
