@@ -16,13 +16,11 @@ export const Container = styled.div`
     padding: 0;
   }
   @media (max-width: 768px) {
-    img {
-      opacity: 0;
-    }
+    h5,
+    img,
     p {
       position: absolute;
-      left: 200px;
-      padding: 0;
+      opacity: 0;
     }
   }
 `;

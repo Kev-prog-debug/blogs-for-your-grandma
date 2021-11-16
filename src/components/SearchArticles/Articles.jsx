@@ -23,7 +23,7 @@ const Articles = () => {
           return (
             <Link
               to={{
-                pathname: `/articles/${article.title}`,
+                pathname: `/details/${article.title}`,
                 state: { ...article },
               }}
               key={v4()}

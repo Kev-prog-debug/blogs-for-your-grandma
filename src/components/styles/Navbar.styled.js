@@ -12,6 +12,7 @@ export const Nav = styled.nav`
       font-size: 15px;
       font-weight: 200px;
     }
+    padding-right: 30px;
   }
 `;
 export const Container = styled.div`
@@ -54,6 +55,7 @@ export const NavItem = styled.div`
       font-weight: 400;
       margin: 0;
       padding: 2px 5px;
+      margin-right: 30px;
     }
     h1 {
       font-size: 25px;

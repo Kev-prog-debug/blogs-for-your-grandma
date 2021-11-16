@@ -1,8 +1,9 @@
+import { FooterText } from "./styles";
 const Footer = () => {
   return (
-    <footer>
+    <FooterText>
       <p>2021 © GNA </p>
-    </footer>
+    </FooterText>
   );
 };
 

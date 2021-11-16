@@ -14,18 +14,18 @@ const Weather = () => {
     setWeatherData(data);
   };
   return (
-    <>
+    <Container>
       {weatherData && (
-        <Container>
+        <>
           <h5>{weatherData.name}</h5>
           <img
             src={`http://openweathermap.org/img/wn/${weatherData.weather[0].icon}@2x.png`}
             alt="weather icon"
           />
           <p>{Math.round(weatherData.main.temp)} ℃</p>
-        </Container>
+        </>
       )}
-    </>
+    </Container>
   );
 };
 export default Weather;
