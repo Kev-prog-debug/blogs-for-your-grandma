@@ -9,14 +9,18 @@ export const Form = styled.form`
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 300px;
+    width: 40%;
+    font-size: 18px;
     height: 34px;
     border: none;
     padding: 0 14px;
     border-radius: 4px;
   }
   & button {
-    border-radius: 20px;
+    border-radius: 5px;
+    border: none;
+    width: 90px;
+    height: 30px;
     display: block;
     margin-right: auto;
     margin-left: auto;

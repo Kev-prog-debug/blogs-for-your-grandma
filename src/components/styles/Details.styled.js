@@ -10,7 +10,8 @@ export const Container = styled.div`
   }
 `;
 export const Article = styled.article`
-  padding: 15px 15px;
+  padding: 15px;
+  word-wrap: break-word;
   width: 100%;
   & img {
     width: 80%;
@@ -21,20 +22,26 @@ export const Article = styled.article`
     margin-bottom: 2rem;
     border-radius: 10px;
   }
+  & p {
+    width: 95%;
+  }
   @media (max-width: 768px) {
     padding: 10px 5px;
     & img {
       width: 80%;
       height: 250px;
     }
+    p {
+      width: 95%;
+    }
   }
 `;
 export const Title = styled.h3`
-  font-weight: 600;
-  font-size: 35px;
+  font-weight: 500;
+  font-size: 30px;
   line-height: 1.5em;
   @media (max-width: 768px) {
-    font-size: 22px;
+    font-size: 24px;
     font-weight: 500;
     line-height: normal;
   }
@@ -48,12 +55,12 @@ export const PublishedDate = styled.p`
   }
 `;
 export const Content = styled.p`
-  font-size: 26px;
+  font-size: 24px;
   line-height: 1.5em;
-  font-weight: 500;
+  font-weight: 300;
   @media (max-width: 768px) {
     font-size: 20px;
-    font-weight: 400;
+    font-weight: 300;
     padding: 5px;
   }
 `;

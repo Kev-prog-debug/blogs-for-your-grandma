@@ -1,30 +1,36 @@
 import {
   PageTitle,
   Container,
-  ArticlesContainer,
   Article,
 } from "../components/styles/Home.styled";
 import { Loading } from "react-loading-dot";
 import { Link } from "react-router-dom";
-import useFetch from "../useFetch";
+import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
+import { useEffect } from "react";
+import { fetchBreakingNews } from "../Redux/actions/fetchPosts";
+import { v4 } from "uuid";
 const Home = () => {
-  const { data, loading } = useFetch(
-    `https://gnews.io/api/v4/top-headlines?token=${process.env.REACT_APP_API_KEY}&lang=en&max=20`
-  );
+  const dispatch = useDispatch();
+  const state = useSelector((state) => state);
+  useEffect(() => {
+    dispatch(fetchBreakingNews());
+  }, []);
   return (
     <>
       <PageTitle>Breaking News</PageTitle>
       <Container>
-        {loading ? (
+        {state.loading ? (
           <Loading />
         ) : (
-          data.articles.map((article) => {
+          state.breakingNews.map((article) => {
             return (
               <Link
                 to={{
                   pathname: `/details/${article.title}`,
                   state: { ...article },
                 }}
+                key={v4()}
               >
                 <Article>
                   <h3>{article.title}</h3>

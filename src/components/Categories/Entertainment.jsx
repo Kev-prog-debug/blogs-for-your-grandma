@@ -1,19 +1,23 @@
-import useFetch from "../../useFetch";
 import { Loading } from "react-loading-dot";
 import { v4 } from "uuid";
-import { Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Container, Article } from "../styles/Home.styled";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchArticles } from "../../Redux/actions/fetchPosts";
 const Entertainment = () => {
-  const { data, loading } = useFetch(
-    `https://gnews.io/api/v4/search?q=entertainment&token=${process.env.REACT_APP_API_KEY}&lang=en&max=20`
-  );
+  const dispatch = useDispatch();
+  const state = useSelector((state) => state);
+  useEffect(() => {
+    dispatch(fetchArticles("entertainment"));
+  }, []);
   return (
     <Container>
-      {loading ? (
+      {state.loading ? (
         <Loading />
       ) : (
-        data &&
-        data.articles.map((article) => {
+        state.posts &&
+        state.posts.map((article) => {
           return (
             <Link
               to={{

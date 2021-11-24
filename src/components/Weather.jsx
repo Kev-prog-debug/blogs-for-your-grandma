@@ -1,18 +1,15 @@
 import { useEffect, useState } from "react";
 import { Container } from "./styles/weatherInfo.styled";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchWeatherInfo } from "../Redux/actions/fetchPosts";
 const Weather = () => {
-  const [weatherData, setWeatherData] = useState(null);
+  // const [weatherData, setWeatherData] = useState(null);
+  const dispatch = useDispatch();
+  const weatherData = useSelector((state) => state.weatherInfo);
   useEffect(() => {
-    fetchWeather();
+    dispatch(fetchWeatherInfo());
   }, []);
-  const fetchWeather = async () => {
-    const response = await fetch(
-      `https://api.openweathermap.org/data/2.5/weather?q=yangon&appid=d896edbae39a61362c68bc4466dd9453&units=metric`
-    );
-    const data = await response.json();
-    // console.log("data", data);
-    setWeatherData(data);
-  };
+
   return (
     <Container>
       {weatherData && (
