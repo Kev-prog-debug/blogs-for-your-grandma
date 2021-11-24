@@ -8,9 +8,11 @@ import Entertainment from "./components/Categories/Entertainment";
 import Footer from "./components/Footer";
 import AboutUs from "./Pages/AboutUs";
 import Details from "./Pages/Details";
+import GlobalStyles from "./components/styles/Global";
 const App = () => {
   return (
     <>
+      <GlobalStyles />
       <Navbar />
       <Switch>
         <Route exact path="/" component={Home} />
